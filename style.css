@@ -1,0 +1,12 @@
+.blue {
+    height: 75px;
+    width: 75px;
+    background-color: blue;
+    border-radius: 50%;
+}
+.red {
+    height: 75px;
+    width: 75px;
+    background-color: red;
+    border-radius: 50%;
+}
