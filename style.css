@@ -10,3 +10,10 @@
     background-color: red;
     border-radius: 50%;
 }
+.blank {
+    height: 75px;
+    width: 75px;
+    background-color: rgb(164, 238, 243);
+    border-radius: 50%;
+    border: 1px solid black;
+}
