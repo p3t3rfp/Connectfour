@@ -12,11 +12,11 @@ var gameBoard = [
 //create modal to accept player names on start game button click and assign them red or blue
 
 var playerOne = {
-    name: '#',
+    name: 'playerOne',
     color: 'blue'
 }
 var playerTwo = {
-    name: '#',
+    name: 'playerTwo',
     color: 'red'
 }
 
@@ -46,37 +46,30 @@ $('.getStarted').on('click', function () {
 let counter = 2
 // let player = [playerOne, playerTwo]
 
-$('.blank').on('click', function () {
-    console.log('clicked blank')
-        if (counter % 2 === 0) {
-            $(this).toggleClass('blank').addClass('blue')
-            $('.piece').css('background-color', 'red')
-        } else {
-            $(this).toggleClass('blank').addClass('red')
-            $('.piece').css('background-color', 'blue')
-        }
-        counter += 1
+//function to not allow a piece to be overridden or clicked again
+$('.blank').not('.blue').on('click', function () {
+    if ($(this).hasClass('blue') || $(this).hasClass('red')) {
+        return
+    }
+    if (counter % 2 === 0) {
+        $(this).toggleClass('blank').addClass('blue')
+        $('.piece').css('background-color', 'red')
+    } else {
+        $(this).toggleClass('blank').addClass('red')
+        $('.piece').css('background-color', 'blue')
+    }
+    counter += 1
 })
 
 
 //attach click handler to clear board button that will reload board
 
-$('.clearBoard').on('click', function() {
-    console.log('clear clicked')
-    // $('.blue').addClass('animated slideDown')
-    // $('.red').addClass('animated slideDown')
-    $('.blue').addClass('animated slideInUp blank')
-    $('.red').addClass('animated slideInUp blank')
+$('.clearBoard').on('click', function () {
+    $('.blue').addClass('animated slideInUp blank').removeClass('blue')
+    $('.red').addClass('animated slideInUp blank').removeClass('red')
     $('.blank').addClass('animated slideInUp')
-
-    // reloadBoard()
-    $('.getStarted').show()
-    
+    loadBoard()
 })
-
-// function reloadBoard() {
-//     board.show()
-// }
 
 //logic to check vertical win
 
