@@ -1,6 +1,6 @@
 //create the board
 
-var board = [
+var gameBoard = [
     ['', '', '', '', '', '', ''],
     ['', '', '', '', '', '', ''],
     ['', '', '', '', '', '', ''],
@@ -22,7 +22,9 @@ var playerTwo = {
 
 //logic to load new game
 
-var board = $('.board').hide()
+var board = $('.board')
+
+board.hide()
 
 function loadBoard() {
     board.show()
@@ -48,8 +50,10 @@ $('.blank').on('click', function (player) {
     console.log('clicked blank')
         if (counter % 2 === 0) {
             $(this).toggleClass('blank').addClass('blue')
+            $('.piece').addClass('red')
         } else {
             $(this).toggleClass('blank').addClass('red')
+            $('.piece').addClass('red')
         }
         counter += 1
 })
@@ -59,32 +63,19 @@ $('.blank').on('click', function (player) {
 
 $('.clearBoard').on('click', function() {
     console.log('clear clicked')
-    $('.blue').addClass('animated slideOutDown')
-    $('.red').addClass('animated slideOutDown')
+    // $('.blue').addClass('animated slideDown')
+    // $('.red').addClass('animated slideDown')
+    $('.blue').addClass('animated slideInUp blank')
+    $('.red').addClass('animated slideInUp blank')
+    $('.blank').addClass('animated slideInUp')
+
     // reloadBoard()
     $('.getStarted').show()
-    board.show()
+    
 })
 
 // function reloadBoard() {
 //     board.show()
-// }
-
-
-//animate.css animation function
-
-// function animateCss(element, animationName, callback) {
-//     const node = document.querySelector(element)
-//     node.classList.add('animated', animationName)
-
-//     function handleAnimationEnd() {
-//         node.classList.remove('animated', animationName)
-//         node.removeEventListener('animationend', handleAnimationEnd)
-
-//         if (typeof callback === 'function') callback()
-//     }
-
-//     node.addEventListener('animationend', handleAnimationEnd)
 // }
 
 //logic to check vertical win
