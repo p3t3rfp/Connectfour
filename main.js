@@ -28,13 +28,12 @@ function loadBoard() {
     $('.board').toggle()
 }
 
-
-
-
 //attach click handler to start game button that loads the board and alerts playerOne it is their turn
 
 $('.getStarted').on('click', function() {
     loadBoard()
+    alert(`${playerOne.name} it is your turn`)
+    $('.getStarted').hide()
 })
 
 //attach click handler to game piece that will drop into board
