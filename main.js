@@ -48,7 +48,7 @@ let counter = 2
 
 //function to not allow a piece to be overridden or clicked again
 $('.blank').not('.blue').on('click', function () {
-    if ($(this).hasClass('blue') || $(this).hasClass('red')) {
+    if ($(this).hasClass('blue') || $(this).hasClass('red') || $(this).next().hasClass('blank')) {
         return
     }
     if (counter % 2 === 0) {
