@@ -11,11 +11,31 @@ var board = [
 
 //create modal to accept player names on start game button click and assign them red or blue
 
-var playerOne = {}
-var playerTwo = {}
+var playerOne = {
+    name: '#',
+    color: 'blue'
+}
+var playerTwo = {
+    name: '#',
+    color: 'red'
+}
+
+//logic to load new game
+
+var board = $('.board').hide()
+
+function loadBoard() {
+    $('.board').toggle()
+}
+
+
 
 
 //attach click handler to start game button that loads the board and alerts playerOne it is their turn
+
+$('.getStarted').on('click', function() {
+    loadBoard()
+})
 
 //attach click handler to game piece that will drop into board
 
