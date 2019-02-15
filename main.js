@@ -1,13 +1,15 @@
 //create the board
 
 var gameBoard = [
-    ['', '', '', '', '', '', ''],
-    ['', '', '', '', '', '', ''],
-    ['', '', '', '', '', '', ''],
-    ['', '', '', '', '', '', ''],
-    ['', '', '', '', '', '', '']
+    [{}, {}, {}, {}, {}, {}, {}],
+    [{}, {}, {}, {}, {}, {}, {}],
+    [{}, {}, {}, {}, {}, {}, {}],
+    [{}, {}, {}, {}, {}, {}, {}],
+    [{}, {}, {}, {}, {}, {}, {}],
+    [{}, {}, {}, {}, {}, {}, {}]
 ]
 
+var testObject = {}
 
 //create modal to accept player names on start game button click and assign them red or blue
 
@@ -45,9 +47,9 @@ $('.getStarted').on('click', function () {
 
 let counter = 2
 // let player = [playerOne, playerTwo]
-
+let loc
 //function to not allow a piece to be overridden or clicked again
-$('.blank').not('.blue').on('click', function () {
+$('.blank').on('click', function () {
     if ($(this).hasClass('blue') || $(this).hasClass('red') || $(this).next().hasClass('blank')) {
         return
     }
@@ -59,6 +61,13 @@ $('.blank').not('.blue').on('click', function () {
         $('.piece').css('background-color', 'blue')
     }
     counter += 1
+    rowLocation = this
+    columnLocation = this.parentNode
+    row = parseInt(rowLocation.classList[0])
+    column = parseInt(columnLocation.classList[1])
+    color = rowLocation.classList[1]
+    console.log(`${row} is row and ${column} is column`)
+    gameBoard[row][column].color = color
 })
 
 
