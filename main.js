@@ -46,14 +46,14 @@ $('.getStarted').on('click', function () {
 let counter = 2
 // let player = [playerOne, playerTwo]
 
-$('.blank').on('click', function (player) {
+$('.blank').on('click', function () {
     console.log('clicked blank')
         if (counter % 2 === 0) {
             $(this).toggleClass('blank').addClass('blue')
-            $('.piece').addClass('red')
+            $('.piece').css('background-color', 'red')
         } else {
             $(this).toggleClass('blank').addClass('red')
-            $('.piece').addClass('red')
+            $('.piece').css('background-color', 'blue')
         }
         counter += 1
 })
