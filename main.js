@@ -25,7 +25,7 @@ var playerTwo = {
 var board = $('.board').hide()
 
 function loadBoard() {
-    $('.board').toggle()
+    board.show()
 }
 
 //attach click handler to start game button that loads the board and alerts playerOne it is their turn
@@ -57,9 +57,35 @@ $('.blank').on('click', function (player) {
 
 //attach click handler to clear board button that will reload board
 
-// $('.clearBoard').on('click', function() {
-//     $('.board').
-// })
+$('.clearBoard').on('click', function() {
+    console.log('clear clicked')
+    $('.blue').addClass('animated slideOutDown')
+    $('.red').addClass('animated slideOutDown')
+    // reloadBoard()
+    $('.getStarted').show()
+    board.show()
+})
+
+// function reloadBoard() {
+//     board.show()
+// }
+
+
+//animate.css animation function
+
+// function animateCss(element, animationName, callback) {
+//     const node = document.querySelector(element)
+//     node.classList.add('animated', animationName)
+
+//     function handleAnimationEnd() {
+//         node.classList.remove('animated', animationName)
+//         node.removeEventListener('animationend', handleAnimationEnd)
+
+//         if (typeof callback === 'function') callback()
+//     }
+
+//     node.addEventListener('animationend', handleAnimationEnd)
+// }
 
 //logic to check vertical win
 
