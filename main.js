@@ -128,6 +128,18 @@ function horizontalWin(array, color) {
             && array[i][3] === color
             && array[i][4] === color
         ) alert(`${color} wins!`);
+
+        if (array[i][2] === color
+            && array[i][3] === color
+            && array[i][4] === color
+            && array[i][5] === color
+        ) alert(`${color} wins!`);
+
+        if (array[i][3] === color
+            && array[i][4] === color
+            && array[i][5] === color
+            && array[i][6] === color
+        ) alert(`${color} wins!`);
     }
     return false;
 }
