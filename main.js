@@ -13,11 +13,14 @@ var gameBoard = [
 
 var playerOne = {
     name: 'playerOne',
-    color: 'blue'
+    color: 'blue',
+    gamesOne: ''
+
 }
 var playerTwo = {
     name: 'playerTwo',
-    color: 'red'
+    color: 'red',
+    gamesOne: ''
 }
 
 //logic to load new game
@@ -35,6 +38,8 @@ function loadBoard() {
 $('.getStarted').on('click', function () {
     loadBoard()
     $('.playerNames').hide()
+    playerOne.name = $('.playerOne').val()
+    playerTwo.name = $('.playerTwo').val()
     $('.clearBoard').css('visibility', 'visible')
 })
 
