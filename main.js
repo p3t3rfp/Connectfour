@@ -103,7 +103,7 @@ function verticalWin(array, color) {
             && array[3][i] === color
             && array[4][i] === color
         ) alert(`${color} wins!`)
-        
+
         if (array[2][i] === color
             && array[3][i] === color
             && array[4][i] === color
@@ -121,52 +121,63 @@ function horizontalWin(array, color) {
             && array[i][1] === color
             && array[i][2] === color
             && array[i][3] === color
-        ) alert(`${color} wins!`);
+        ) alert(`${color} wins!`)
 
         if (array[i][1] === color
             && array[i][2] === color
             && array[i][3] === color
             && array[i][4] === color
-        ) alert(`${color} wins!`);
+        ) alert(`${color} wins!`)
 
         if (array[i][2] === color
             && array[i][3] === color
             && array[i][4] === color
             && array[i][5] === color
-        ) alert(`${color} wins!`);
+        ) alert(`${color} wins!`)
 
         if (array[i][3] === color
             && array[i][4] === color
             && array[i][5] === color
             && array[i][6] === color
-        ) alert(`${color} wins!`);
+        ) alert(`${color} wins!`)
     }
     return false;
 }
 
-// function horizontal() {
-//     let blue = 'blue'
-//     let red = 'red'
-//     for (let i = 0; i < gameBoard.length; i ++) {
-//         for (let j = 0; j < gameBoard[i].length; j ++) {
-//             if (gameBoard[i][j] = blue) {
-//             } 
-//         }
-//     }
-// }
-
-
 //logic to check diagonal wins
 
-//function to check for game winner by color includes all 4 variations - vertical/horizontal
-//forward diagonal and backward diagonal
+// var gameBoard = [
+//     ['', '', '', '', '', '', ''], [0] i
+//     ['', '', '', '', '', '', ''], [1]
+//     ['', '', '', '', '', '', ''], [2]
+//     ['', '', '', '', '', '', ''], [3]
+//     ['', '', '', '', '', '', ''], [4]
+//     ['', '', '', '', '', '', '']  [5]
+// ]   [0]  [1] [2] [3] [4] [5] [6]
+// j
 
-function checkForWin(array, color) {
-    return verticalWin(array, color)
-        || horizontalWin(array, color)
-        // || checkDiagonal1(array, color)
-        // || checkDiagonal2(array, color)
+function diagonal(array, color) {
+    for (let i = 3; i < array.length; i++) {
+        for (let j = 0; j < array[0].length; j++) {
+            if (array[i][j] === color
+                && array[i-1][j+1] === color
+                && array[i-2][j+2] === color
+                && array[i-3][j+3] === color
+            ) alert(`${color} wins!`)
+        }
+    }
 }
+
+
+        //function to check for game winner by color includes all 4 variations - vertical/horizontal
+        //forward diagonal and backward diagonal
+
+        function checkForWin(array, color) {
+            return verticalWin(array, color)
+                || horizontalWin(array, color)
+                || diagonal(array, color)
+            // || checkDiagonal2(array, color)
+        }
 
 
 //create counter to store player's number of wins
