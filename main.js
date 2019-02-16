@@ -9,8 +9,6 @@ var gameBoard = [
     ['', '', '', '', '', '', '']
 ]
 
-// var testObject = {}
-
 //create modal to accept player names on start game button click and assign them red or blue
 
 var playerOne = {
@@ -36,8 +34,8 @@ function loadBoard() {
 
 $('.getStarted').on('click', function () {
     loadBoard()
-    // alert(`${playerOne.name} it is your turn`)
-    $('.getStarted').hide()
+    $('.playerNames').hide()
+    $('.clearBoard').css('visibility', 'visible')
 })
 
 //attach click handler to game piece that will place into board column
@@ -84,8 +82,7 @@ $('.clearBoard').on('click', function () {
     $('.blue').addClass('animated slideInUp blank').removeClass('blue')
     $('.red').addClass('animated slideInUp blank').removeClass('red')
     $('.blank').addClass('animated slideInUp')
-    location.reload(true)
-    // loadBoard()
+    loadBoard()
 })
 
 //logic to check vertical win
@@ -145,16 +142,6 @@ function horizontalWin(array, color) {
 }
 
 //logic to check diagonal wins
-
-// var gameBoard = [
-//     ['', '', '', '', '', '', ''], [0] i
-//     ['', '', '', '', '', '', ''], [1]
-//     ['', '', '', '', '', '', ''], [2]
-//     ['', '', '', '', '', '', ''], [3]
-//     ['', '', '', '', '', '', ''], [4]
-//     ['', '', '', '', '', '', '']  [5]
-// ]   [0]  [1] [2] [3] [4] [5] [6]
-// j
 
 function diagonalOne(array, color) {
     for (let i = 3; i < array.length; i++) {

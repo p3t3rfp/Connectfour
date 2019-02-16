@@ -25,12 +25,10 @@
 </head>
 
 <body>
-
     <header>
+        <div class="container">
 
-        <div class="container col">
-
-            <div class="row  logo align-items-center">
+            <div class="row logo align-items-center">
                 <div class="blueLogo col"></div>
                 <div class="redLogo col"></div>
                 <div class="blueLogo col"></div>
@@ -41,15 +39,42 @@
                 <div class="redLogo col"></div>
             </div>
 
-            <h1 class="row justify-content-center">Let's Connect!</h1>
+            <h1 class="row justify-content-center">CONNECT FOUR</h1>
 
-            <button class="getStarted col btn-lg">Start Game</button>
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary col playerNames" data-toggle="modal" data-target="#exampleModal">
+                Let's Connect!
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Please enter your names</h5>
+                            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+                                <!-- <span aria-hidden="true">&times;</span>
+                            </button> -->
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" class="playerOne" placeholder="player 1">
+                            <input type="text" class="playerTwo" placeholder="player 2">
+                        </div>
+                        <div class="modal-footer">
+                            <!-- <button type="button" class="btn btn-secondary" >Close</button> -->
+                            <button type="button" class="btn btn-primary getStarted" data-dismiss="modal">Go!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
-
     </header>
 
-    <div class="container ">
+
+
+    <div class="container">
         <div class="container board row justify-content-center">
             <div class="piece"></div>
             <div class="container">
@@ -135,8 +160,8 @@
             </div>
         </div>
     </div>
-    <div class="container col">
-        <button class="clearBoard col btn-lg">Clear Board</button>
+    <div class="container col-sm-3">
+        <button class="clearBoard col btn-primary">Clear Board</button>
     </div>
     </div>
 </body>
