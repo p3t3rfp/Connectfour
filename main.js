@@ -1,15 +1,15 @@
 //create the board
 
 var gameBoard = [
-    [{}, {}, {}, {}, {}, {}, {}],
-    [{}, {}, {}, {}, {}, {}, {}],
-    [{}, {}, {}, {}, {}, {}, {}],
-    [{}, {}, {}, {}, {}, {}, {}],
-    [{}, {}, {}, {}, {}, {}, {}],
-    [{}, {}, {}, {}, {}, {}, {}]
+    ['', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', ''],
+    ['', '', '', '', '', '', '']
 ]
 
-var testObject = {}
+// var testObject = {}
 
 //create modal to accept player names on start game button click and assign them red or blue
 
@@ -67,7 +67,8 @@ $('.blank').on('click', function () {
     column = parseInt(columnLocation.classList[1])
     color = rowLocation.classList[1]
     console.log(`${row} is row and ${column} is column`)
-    gameBoard[row][column].color = color
+    gameBoard[row][column] = color
+    horizontal()
 })
 
 
@@ -77,13 +78,32 @@ $('.clearBoard').on('click', function () {
     $('.blue').addClass('animated slideInUp blank').removeClass('blue')
     $('.red').addClass('animated slideInUp blank').removeClass('red')
     $('.blank').addClass('animated slideInUp')
-    loadBoard()
+    location.reload(true)
+    // loadBoard()
 })
 
 //logic to check vertical win
 
 
 //logic to check horizontal win
+
+function check4horizontal(array) {
+    return array.some(function (a, j, aa) {
+        return j > 1 && a === aa[j - 3] && a === aa[j - 2] && a === aa[j - 1];
+    });
+}
+
+// function horizontal() {
+//     let blue = 'blue'
+//     let red = 'red'
+//     for (let i = 0; i < gameBoard.length; i ++) {
+//         for (let j = 0; j < gameBoard[i].length; j ++) {
+//             if (gameBoard[i][j] = blue) {
+//                 check4horizontal(gameBoard)
+//             } 
+//         }
+//     }
+// }
 
 
 //logic to check diagonal win
