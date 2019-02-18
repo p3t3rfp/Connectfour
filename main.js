@@ -45,8 +45,8 @@ $('.getStarted').on('click', function () {
     loadBoard()
     playerOne.name = $('.playerOne').val()
     playerTwo.name = $('.playerTwo').val()
-
-
+    $('.p1name').text(playerOne.name)
+    $('.p2name').text(playerTwo.name)
 
 })
 
@@ -76,7 +76,6 @@ $('.blank').on('click', function () {
     row = parseInt(rowLocation.classList[0])
     column = parseInt(columnLocation.classList[1])
     color = rowLocation.classList[1]
-    console.log(`${row} is row and ${column} is column`)
     gameBoard[row][column] = color
 
     if (color === 'black') {
@@ -191,7 +190,7 @@ function checkForWin(array, color) {
     return verticalWin(array, color)
         || horizontalWin(array, color)
         || diagonalOne(array, color)
-        // || diagonalTwo(array, color)
+        || diagonalTwo(array, color)
 }
 
 
