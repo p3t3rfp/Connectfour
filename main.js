@@ -9,19 +9,21 @@ var gameBoard = [
     ['', '', '', '', '', '', '']
 ]
 
-//create modal to accept player names on start game button click and assign them red or blue
+//create modal to accept player names on start game button click and assign them red or black
 
 var playerOne = {
     name: 'playerOne',
-    color: 'blue',
-    gamesOne: ''
-
+    color: 'black',
+    gamesWon: 0
 }
+
 var playerTwo = {
     name: 'playerTwo',
     color: 'red',
-    gamesOne: ''
+    gamesWon: 0
 }
+
+// var scoreboard = $('.scoreboard')
 
 //logic to load new game
 
@@ -31,16 +33,21 @@ board.hide()
 
 function loadBoard() {
     board.show()
+    $('.playerNames').hide()
+    $('.clearBoard').css('visibility', 'visible')
+    $('.col').removeClass('black red')
+
 }
 
 //attach click handler to start game button that loads the board and alerts playerOne it is their turn
 
 $('.getStarted').on('click', function () {
     loadBoard()
-    $('.playerNames').hide()
     playerOne.name = $('.playerOne').val()
     playerTwo.name = $('.playerTwo').val()
-    $('.clearBoard').css('visibility', 'visible')
+
+
+
 })
 
 //attach click handler to game piece that will place into board column
@@ -50,16 +57,16 @@ let counter = 2
 $('.blank').on('click', function () {
 
     //function to not allow a piece to be overridden or clicked again
-    if ($(this).hasClass('blue') || $(this).hasClass('red') || $(this).next().hasClass('blank')) {
+    if ($(this).hasClass('black') || $(this).hasClass('red') || $(this).next().hasClass('blank')) {
         return
     }
     //logic to alternate turns
     if (counter % 2 === 0) {
-        $(this).toggleClass('blank').addClass('blue')
+        $(this).toggleClass('blank').addClass('black')
         $('.piece').css('background-color', 'red')
     } else {
         $(this).toggleClass('blank').addClass('red')
-        $('.piece').css('background-color', 'blue')
+        $('.piece').css('background-color', 'black')
     }
 
     //place each selected piece into the gameBoard array by color
@@ -69,11 +76,11 @@ $('.blank').on('click', function () {
     row = parseInt(rowLocation.classList[0])
     column = parseInt(columnLocation.classList[1])
     color = rowLocation.classList[1]
-    // console.log(`${row} is row and ${column} is column`)
+    console.log(`${row} is row and ${column} is column`)
     gameBoard[row][column] = color
 
-    if (color === 'blue') {
-        checkForWin(gameBoard, 'blue')
+    if (color === 'black') {
+        checkForWin(gameBoard, 'black')
     } else {
         checkForWin(gameBoard, 'red')
     }
@@ -84,10 +91,14 @@ $('.blank').on('click', function () {
 //attach click handler to clear board button that will reload board
 
 $('.clearBoard').on('click', function () {
-    $('.blue').addClass('animated slideInUp blank').removeClass('blue')
-    $('.red').addClass('animated slideInUp blank').removeClass('red')
-    $('.blank').addClass('animated slideInUp')
+    $('.black').addClass('blank').removeClass('black')
+    $('.red').addClass('blank').removeClass('red')
     loadBoard()
+    for (i = 0; i < gameBoard.length; i++) {
+        for (j = 0; j < gameBoard[i].length; j++) {
+            gameBoard[i][j] = ''
+        }
+    }
 })
 
 //logic to check vertical win
@@ -180,7 +191,7 @@ function checkForWin(array, color) {
     return verticalWin(array, color)
         || horizontalWin(array, color)
         || diagonalOne(array, color)
-        || diagonalTwo(array, color)
+        // || diagonalTwo(array, color)
 }
 
 

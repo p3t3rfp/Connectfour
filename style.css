@@ -1,7 +1,13 @@
-.blueLogo {
+body {
+    background-color: rgb(181, 235, 222);
+}
+
+
+
+.blackLogo {
     height: 75px;
     width: 75px;
-    background-color: blue;
+    background-color: black;
     border-radius: 50%;
 }
 .redLogo {
@@ -18,13 +24,17 @@ header {
 
 .logo {
     margin-bottom: 5%;
-    /* max-width: 80%; */
+    display: flex;
 }
 
-.blue {
+.logo col {
+    display: flex;
+}
+
+.black {
     height: 75px;
     width: 75px;
-    background-color: blue;
+    background-color: black;
     border-radius: 50%;
 }
 .red {
@@ -44,27 +54,38 @@ header {
 .piece {
     height: 75px;
     width: 75px;
-    background-color: blue;
+    background-color: black;
     border-radius: 50%;
-    border: 1px solid black;
+    border: 1px solid rgb(250, 247, 247);
 }
 
 .playerPiece {
-    background-color: antiquewhite;
+    height: 75px;
+    width: 75px;
+    background-color: black;
+    border-radius: 50%;
 }
 
 .board {
     height: 90%;
-    background-color: yellow;
+    background-color: rgb(224, 224, 240);
     border: 2px solid black;
     margin-bottom: 2%;
+    opacity: .6;
 }
 
-.row {
-    border: 1px solid black;
-}
+/* .row {
+     border: 1px solid black; 
+} */
 
 .clearBoard {
     visibility: hidden;
+}
+
+.scoreboard {
+    background-color: rgb(252, 250, 247);
+    margin-left: 1%;
+    margin-right: 0;
+    opacity: .4
 }
 
