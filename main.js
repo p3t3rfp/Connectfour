@@ -179,7 +179,7 @@ function diagonalOne(array, color) {
 
 function diagonalTwo(array, color) {
     for (let i = 0; i < array.length; i++) {
-        for (let j = 0; j < 5; j++) {
+        for (let j = 0; j < 4; j++) {
             if (array[i][j] === color
                 && array[i + 1][j + 1] === color
                 && array[i + 2][j + 2] === color
@@ -205,6 +205,7 @@ function checkForWin(array, color) {
     //create counter to store player's number of wins
     
 function updateWins(color) {
+    if (checkForWin() === true) {
     if (color === 'black') {
         playerOne.gamesWon += 1
         $('.p1wins').text(playerOne.gamesWon)
@@ -213,4 +214,5 @@ function updateWins(color) {
         $('.p2wins').text(playerTwo.gamesWon)
     }
     return false
+}
 }
