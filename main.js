@@ -36,7 +36,7 @@ function loadBoard() {
     $('.playerNames').hide()
     $('.clearBoard').css('visibility', 'visible')
     $('.col').removeClass('black red')
-
+    counter = 2
 }
 
 //attach click handler to start game button that loads the board and alerts playerOne it is their turn
@@ -80,8 +80,10 @@ $('.blank').on('click', function () {
 
     if (color === 'black') {
         checkForWin(gameBoard, 'black')
+        updateWins('black')
     } else {
         checkForWin(gameBoard, 'red')
+        updateWins('red')
     }
     return false
 })
@@ -103,7 +105,7 @@ $('.clearBoard').on('click', function () {
 //logic to check vertical win
 
 function verticalWin(array, color) {
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 7; i++) {
         if (array[0][i] === color
             && array[1][i] === color
             && array[2][i] === color
@@ -158,6 +160,8 @@ function horizontalWin(array, color) {
 
 //logic to check diagonal wins
 
+//bottom left to top right
+
 function diagonalOne(array, color) {
     for (let i = 3; i < array.length; i++) {
         for (let j = 0; j < array[0].length; j++) {
@@ -170,9 +174,12 @@ function diagonalOne(array, color) {
     }
 }
 
+
+//bottom right to top left
+
 function diagonalTwo(array, color) {
     for (let i = 0; i < array.length; i++) {
-        for (let j = 0; j < array[0].length; j++) {
+        for (let j = 0; j < 5; j++) {
             if (array[i][j] === color
                 && array[i + 1][j + 1] === color
                 && array[i + 2][j + 2] === color
@@ -191,7 +198,19 @@ function checkForWin(array, color) {
         || horizontalWin(array, color)
         || diagonalOne(array, color)
         || diagonalTwo(array, color)
+
+    }
+    
+    
+    //create counter to store player's number of wins
+    
+function updateWins(color) {
+    if (color === 'black') {
+        playerOne.gamesWon += 1
+        $('.p1wins').text(playerOne.gamesWon)
+    } else if (color === 'red') {
+        playerTwo.gamesWon += 1
+        $('.p2wins').text(playerTwo.gamesWon)
+    }
+    return false
 }
-
-
-//create counter to store player's number of wins

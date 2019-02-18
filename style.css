@@ -25,6 +25,8 @@ header {
 .logo {
     margin-bottom: 5%;
     display: flex;
+    width: 80%;
+    justify-items: center;
 }
 
 .logo col {
