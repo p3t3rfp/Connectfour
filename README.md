@@ -4,6 +4,9 @@
 
 Connect four is a two person game where players drop tokens into the game board and try to get four in a row
 
+Give it a try
+https://trusting-kirch-eaf435.netlify.com/
+
 ## Game Rules
 
 * Click the "Start Game" button 
