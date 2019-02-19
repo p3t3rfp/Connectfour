@@ -25,6 +25,6 @@ https://trusting-kirch-eaf435.netlify.com/
 ## Technologies Used
 
 * Languages ==> HTML | CSS | Javascript
-* Libraries ==> JQuery | 
+* Libraries ==> JQuery | Bootstrap | 
 
 ## Stretch Goals
