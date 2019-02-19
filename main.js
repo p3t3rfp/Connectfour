@@ -80,10 +80,8 @@ $('.blank').on('click', function () {
 
     if (color === 'black') {
         checkForWin(gameBoard, 'black')
-        updateWins('black')
     } else {
         checkForWin(gameBoard, 'red')
-        updateWins('red')
     }
     return false
 })
@@ -110,19 +108,28 @@ function verticalWin(array, color) {
             && array[1][i] === color
             && array[2][i] === color
             && array[3][i] === color
-        ) alert(`${color} wins!`)
+        ) {
+            alert(`${color} wins!`)
+            return true
+        }
 
         if (array[1][i] === color
             && array[2][i] === color
             && array[3][i] === color
             && array[4][i] === color
-        ) alert(`${color} wins!`)
+        ) {
+            alert(`${color} wins!`)
+            return true
+        }
 
         if (array[2][i] === color
             && array[3][i] === color
             && array[4][i] === color
             && array[5][i] === color
-        ) alert(`${color} wins!`)
+        ) {
+            alert(`${color} wins!`)
+            return true
+        }
     }
     return false
 }
@@ -135,25 +142,37 @@ function horizontalWin(array, color) {
             && array[i][1] === color
             && array[i][2] === color
             && array[i][3] === color
-        ) alert(`${color} wins!`)
+        ) {
+            alert(`${color} wins!`)
+            return true
+        }
 
         if (array[i][1] === color
             && array[i][2] === color
             && array[i][3] === color
             && array[i][4] === color
-        ) alert(`${color} wins!`)
+        ) {
+            alert(`${color} wins!`)
+            return true
+        }
 
         if (array[i][2] === color
             && array[i][3] === color
             && array[i][4] === color
             && array[i][5] === color
-        ) alert(`${color} wins!`)
+        ) {
+            alert(`${color} wins!`)
+            return true
+        }
 
         if (array[i][3] === color
             && array[i][4] === color
             && array[i][5] === color
             && array[i][6] === color
-        ) alert(`${color} wins!`)
+        ) {
+            alert(`${color} wins!`)
+            return true
+        }
     }
     return false;
 }
@@ -169,7 +188,10 @@ function diagonalOne(array, color) {
                 && array[i - 1][j + 1] === color
                 && array[i - 2][j + 2] === color
                 && array[i - 3][j + 3] === color
-            ) alert(`${color} wins!`)
+            ) {
+                alert(`${color} wins!`)
+                return true
+            }
         }
     }
 }
@@ -184,7 +206,10 @@ function diagonalTwo(array, color) {
                 && array[i + 1][j + 1] === color
                 && array[i + 2][j + 2] === color
                 && array[i + 3][j + 3] === color
-            ) alert(`${color} wins!`)
+            ) {
+                alert(`${color} wins!`)
+                return true
+            }
         }
     }
 }
@@ -194,18 +219,18 @@ function diagonalTwo(array, color) {
 //forward diagonal and backward diagonal
 
 function checkForWin(array, color) {
-    return verticalWin(array, color)
+    if (verticalWin(array, color)
         || horizontalWin(array, color)
         || diagonalOne(array, color)
-        || diagonalTwo(array, color)
+        || diagonalTwo(array, color)) {
+            updateWins(color)
+        }
+}
 
-    }
-    
-    
-    //create counter to store player's number of wins
-    
+
+//create counter to store player's number of wins
+
 function updateWins(color) {
-    if (checkForWin() === true) {
     if (color === 'black') {
         playerOne.gamesWon += 1
         $('.p1wins').text(playerOne.gamesWon)
@@ -214,5 +239,4 @@ function updateWins(color) {
         $('.p2wins').text(playerTwo.gamesWon)
     }
     return false
-}
 }
