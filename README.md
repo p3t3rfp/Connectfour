@@ -7,6 +7,8 @@ Connect four is a two person game where players drop tokens into the game board 
 Give it a try
 https://trusting-kirch-eaf435.netlify.com/
 
+Link to trello board: https://trello.com/b/rTvPpK5L/connect-four
+
 ## Game Rules
 
 * Click the "Start Game" button 
@@ -18,13 +20,16 @@ https://trusting-kirch-eaf435.netlify.com/
 ## Wireframes
 
 ![alt text](images/IMG_0569.jpeg "Landing Page")
-![alt text](images/IMG_0570.jpeg "Landing Page")
-![alt text](images/IMG_0571.jpeg "Landing Page")
-![alt text](images/IMG_0572.jpeg "Landing Page")
+![alt text](images/IMG_0570.jpeg "Game play")
+![alt text](images/IMG_0571.jpeg "Game play")
+![alt text](images/IMG_0572.jpeg "Game play")
 
 ## Technologies Used
 
 * Languages ==> HTML | CSS | Javascript
-* Libraries ==> JQuery | Bootstrap | 
+* Libraries ==> jQuery | Twitter Bootstrap | Animate.css | SweetAlert2
 
 ## Stretch Goals
+
+* Create AI for single player game
+* Look into parallax background image

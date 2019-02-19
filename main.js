@@ -109,7 +109,8 @@ function verticalWin(array, color) {
             && array[2][i] === color
             && array[3][i] === color
         ) {
-            alert(`${color} wins!`)
+            // alert(`${color} wins!`)
+            customAlert()
             return true
         }
 
@@ -118,7 +119,8 @@ function verticalWin(array, color) {
             && array[3][i] === color
             && array[4][i] === color
         ) {
-            alert(`${color} wins!`)
+            // alert(`${color} wins!`)
+            customAlert()
             return true
         }
 
@@ -127,7 +129,8 @@ function verticalWin(array, color) {
             && array[4][i] === color
             && array[5][i] === color
         ) {
-            alert(`${color} wins!`)
+            // alert(`${color} wins!`)
+            customAlert()
             return true
         }
     }
@@ -143,7 +146,8 @@ function horizontalWin(array, color) {
             && array[i][2] === color
             && array[i][3] === color
         ) {
-            alert(`${color} wins!`)
+            // alert(`${color} wins!`)
+            customAlert()
             return true
         }
 
@@ -152,7 +156,8 @@ function horizontalWin(array, color) {
             && array[i][3] === color
             && array[i][4] === color
         ) {
-            alert(`${color} wins!`)
+            // alert(`${color} wins!`)
+            customAlert()
             return true
         }
 
@@ -161,7 +166,8 @@ function horizontalWin(array, color) {
             && array[i][4] === color
             && array[i][5] === color
         ) {
-            alert(`${color} wins!`)
+            // alert(`${color} wins!`)
+            customAlert()
             return true
         }
 
@@ -170,7 +176,8 @@ function horizontalWin(array, color) {
             && array[i][5] === color
             && array[i][6] === color
         ) {
-            alert(`${color} wins!`)
+            // alert(`${color} wins!`)
+            customAlert()
             return true
         }
     }
@@ -189,7 +196,8 @@ function diagonalOne(array, color) {
                 && array[i - 2][j + 2] === color
                 && array[i - 3][j + 3] === color
             ) {
-                alert(`${color} wins!`)
+                // alert(`${color} wins!`)
+                customAlert()
                 return true
             }
         }
@@ -207,7 +215,8 @@ function diagonalTwo(array, color) {
                 && array[i + 2][j + 2] === color
                 && array[i + 3][j + 3] === color
             ) {
-                alert(`${color} wins!`)
+                // alert(`${color} wins!`)
+                customAlert()
                 return true
             }
         }
@@ -223,8 +232,8 @@ function checkForWin(array, color) {
         || horizontalWin(array, color)
         || diagonalOne(array, color)
         || diagonalTwo(array, color)) {
-            updateWins(color)
-        }
+        updateWins(color)
+    }
 }
 
 
@@ -239,4 +248,30 @@ function updateWins(color) {
         $('.p2wins').text(playerTwo.gamesWon)
     }
     return false
+}
+
+function customAlert() {
+    let timerInterval
+            Swal.fire({
+                title: `${color} wins!`,
+                html: 'Y\'all should play again',
+                timer: 2000,
+                onBeforeOpen: () => {
+                    Swal.showLoading()
+                    timerInterval = setInterval(() => {
+                        Swal.getContent().querySelector('strong')
+                            .textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                onClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }).then((result) => {
+                if (
+                    // Read more about handling dismissals
+                    result.dismiss === Swal.DismissReason.timer
+                ) {
+                    console.log('I was closed by the timer')
+                }
+            })
 }
