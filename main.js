@@ -23,7 +23,6 @@ var playerTwo = {
     gamesWon: 0
 }
 
-// var scoreboard = $('.scoreboard')
 
 //logic to load new game
 
@@ -109,7 +108,6 @@ function verticalWin(array, color) {
             && array[2][i] === color
             && array[3][i] === color
         ) {
-            // alert(`${color} wins!`)
             customAlert()
             return true
         }
@@ -119,7 +117,6 @@ function verticalWin(array, color) {
             && array[3][i] === color
             && array[4][i] === color
         ) {
-            // alert(`${color} wins!`)
             customAlert()
             return true
         }
@@ -129,7 +126,6 @@ function verticalWin(array, color) {
             && array[4][i] === color
             && array[5][i] === color
         ) {
-            // alert(`${color} wins!`)
             customAlert()
             return true
         }
@@ -146,7 +142,6 @@ function horizontalWin(array, color) {
             && array[i][2] === color
             && array[i][3] === color
         ) {
-            // alert(`${color} wins!`)
             customAlert()
             return true
         }
@@ -156,7 +151,6 @@ function horizontalWin(array, color) {
             && array[i][3] === color
             && array[i][4] === color
         ) {
-            // alert(`${color} wins!`)
             customAlert()
             return true
         }
@@ -166,7 +160,6 @@ function horizontalWin(array, color) {
             && array[i][4] === color
             && array[i][5] === color
         ) {
-            // alert(`${color} wins!`)
             customAlert()
             return true
         }
@@ -176,7 +169,6 @@ function horizontalWin(array, color) {
             && array[i][5] === color
             && array[i][6] === color
         ) {
-            // alert(`${color} wins!`)
             customAlert()
             return true
         }
@@ -196,7 +188,6 @@ function diagonalOne(array, color) {
                 && array[i - 2][j + 2] === color
                 && array[i - 3][j + 3] === color
             ) {
-                // alert(`${color} wins!`)
                 customAlert()
                 return true
             }
@@ -215,7 +206,6 @@ function diagonalTwo(array, color) {
                 && array[i + 2][j + 2] === color
                 && array[i + 3][j + 3] === color
             ) {
-                // alert(`${color} wins!`)
                 customAlert()
                 return true
             }
@@ -250,6 +240,8 @@ function updateWins(color) {
     return false
 }
 
+// SweetAlert2 custom auto-closing alert to show game winner
+
 function customAlert() {
     let timerInterval
             Swal.fire({
@@ -268,10 +260,8 @@ function customAlert() {
                 }
             }).then((result) => {
                 if (
-                    // Read more about handling dismissals
                     result.dismiss === Swal.DismissReason.timer
                 ) {
-                    console.log('I was closed by the timer')
                 }
             })
 }
